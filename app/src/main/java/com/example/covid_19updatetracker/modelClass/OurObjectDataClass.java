@@ -1,6 +1,6 @@
 package com.example.covid_19updatetracker.modelClass;
 
-public class ModelClass {
+public class OurObjectDataClass {
     private String country;
     private Integer cases;
     private Integer todayCases;
@@ -14,7 +14,7 @@ public class ModelClass {
     private Integer totalTests;
     private Integer testsPerOneMillion;
 
-    public ModelClass(String country, Integer cases, Integer todayCases, Integer deaths, Integer todayDeaths, Integer recovered, Integer active, Integer critical, Integer casesPerOneMillion, Integer deathsPerOneMillion, Integer totalTests, Integer testsPerOneMillion) {
+    public OurObjectDataClass(String country, Integer cases, Integer todayCases, Integer deaths, Integer todayDeaths, Integer recovered, Integer active, Integer critical, Integer casesPerOneMillion, Integer deathsPerOneMillion, Integer totalTests, Integer testsPerOneMillion) {
         this.country = country;
         this.cases = cases;
         this.todayCases = todayCases;
@@ -29,7 +29,7 @@ public class ModelClass {
         this.testsPerOneMillion = testsPerOneMillion;
     }
 
-    public ModelClass() {
+    public OurObjectDataClass() {
     }
 
     public String getCountry() {
