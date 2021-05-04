@@ -49,7 +49,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
     holder.nameTextView.setText(allData.get(position).getCountry());
-    holder.totalDeathTextView.setText(allData.get(position).getDeaths());
+    holder.totalDeathTextView.setText("Total death : "+String.valueOf(allData.get(position).getDeaths()));
 
 
 

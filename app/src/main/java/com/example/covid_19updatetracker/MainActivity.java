@@ -2,6 +2,7 @@ package com.example.covid_19updatetracker;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.covid_19updatetracker.modelClass.CustomAdapter;
 import com.example.covid_19updatetracker.modelClass.OurObjectDataClass;
 import com.example.covid_19updatetracker.retrofit.ApiInterface;
 import com.example.covid_19updatetracker.retrofit.RetrofitClient;
@@ -26,7 +28,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CustomAdapter.OnContactClickListener{
     List<OurObjectDataClass> allDataList;
     List<String> nameList;
     ApiInterface apiInterface;
@@ -34,10 +36,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
+    CustomAdapter customAdapter;
 
 
 
-
+    CustomAdapter.OnContactClickListener onContactClickListener;
     private static final String BASE_URL = "https://coronavirus-19-api.herokuapp.com";
 
     @Override
@@ -45,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_main);
         recyclerView=findViewById(R.id.recyclerViewId);
-
+        onContactClickListener=this;
         apiInterface = RetrofitClient.getRetrofit("https://coronavirus-19-api.herokuapp.com/").create(ApiInterface.class);
 
             apiInterface.getAllData().enqueue(new Callback<List<OurObjectDataClass>>() {
@@ -56,9 +59,10 @@ public class MainActivity extends AppCompatActivity {
                         nameList=new ArrayList<>();
                         Log.e("response","success");
                         allDataList.addAll(response.body());
-                        for (int i=0;i<allDataList.size()-1;i++){
-                            nameList.add(allDataList.get(i).getCountry());
-                        }
+                        customAdapter = new CustomAdapter(MainActivity.this,allDataList,onContactClickListener);
+                        recyclerView.setAdapter(customAdapter);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
 
                         Log.e("size",String.valueOf( allDataList.size()));
 
@@ -79,4 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onContactClick(int position) {
+
+    }
 }
