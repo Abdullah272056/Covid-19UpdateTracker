@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.OnC
 
     @Override
     public void onContactClick(int position) {
-
+        Intent intent=new Intent(MainActivity.this,DetailsActivity.class);
+        startActivity(intent);
     }
 }

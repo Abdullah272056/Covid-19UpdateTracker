@@ -29,7 +29,7 @@
                     android:textColor="#000000"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:textSize="40sp"
+                    android:textSize="35sp"
                     android:text="Country Name"
                     android:id="@+id/CountryName"
                     android:layout_width="match_parent"
@@ -53,7 +53,7 @@
                     android:text="Total Case"
                     android:textAlignment="center"
                     android:textColor="#000000"
-                    android:textSize="50sp" />
+                    android:textSize="35sp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -70,7 +70,7 @@
                     android:textColor="#000000"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:textSize="50sp"
+                    android:textSize="35sp"
                     android:text="Today Case"
                     android:id="@+id/todayCases"
                     android:layout_width="match_parent"
@@ -94,7 +94,7 @@
                 android:text="Total Death"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="50sp" />
+                android:textSize="35sp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -114,7 +114,7 @@
                 android:text="Today Death"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="50sp" />
+                android:textSize="35sp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -134,7 +134,7 @@
                 android:text="Recovered"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="50sp" />
+                android:textSize="35sp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -154,7 +154,7 @@
                 android:text="Active"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="50sp" />
+                android:textSize="35sp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -174,7 +174,7 @@
                 android:text="Critical"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="50sp" />
+                android:textSize="35sp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -194,7 +194,7 @@
                 android:text="Cases per Million"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="50sp" />
+                android:textSize="35sp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -214,7 +214,7 @@
                 android:text="Deaths per Million"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="50sp" />
+                android:textSize="35sp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -230,7 +230,7 @@
                 android:textColor="#040303"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:textSize="50sp"
+                android:textSize="35sp"
                 android:text="Total Test"
                 android:id="@+id/totalTest"
                 android:layout_width="match_parent"
@@ -254,7 +254,7 @@
                 android:text="Test Per Million"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="50sp" />
+                android:textSize="35sp" />
             </androidx.cardview.widget.CardView>
 
 
