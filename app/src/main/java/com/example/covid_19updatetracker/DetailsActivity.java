@@ -35,7 +35,20 @@ public class DetailsActivity extends AppCompatActivity {
         testPerMillion=findViewById (R.id.testPerMillion);
 
 
-      
+        Intent intent=getIntent();
+
+        countryName.setText(String.valueOf (intent.getStringExtra("country")));
+        todayCase.setText(todayCase.getText ().toString ()+"\n"+intent.getStringExtra("todayCases"));
+        totalCase.setText(totalCase.getText ().toString ()+"\n"+intent.getStringExtra("cases"));
+        totalDeaths.setText(totalDeaths.getText ().toString ()+"\n"+intent.getStringExtra("deaths"));
+        todayDeaths.setText(todayDeaths.getText ().toString ()+"\n"+intent.getStringExtra("todayDeaths"));
+        recover.setText(recover.getText ().toString ()+"\n"+intent.getStringExtra("recovered"));
+        active.setText(active.getText ().toString ()+"\n"+intent.getStringExtra("active"));
+        critical.setText(critical.getText ().toString ()+"\n"+intent.getStringExtra("critical"));
+        casePerMillion.setText(casePerMillion.getText ().toString ()+"\n"+intent.getStringExtra("casesPerOneMillion"));
+        deathsPerMillion.setText(deathsPerMillion.getText ().toString ()+"\n"+intent.getStringExtra("deathsPerOneMillion"));
+        totalTest.setText(totalTest.getText ().toString ()+"\n"+intent.getStringExtra("totalTests"));
+        testPerMillion.setText(testPerMillion.getText ().toString ()+"\n"+intent.getStringExtra("testsPerOneMillion"));
 
 
     }
