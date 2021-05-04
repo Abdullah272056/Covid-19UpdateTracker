@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.cardview.widget.CardView
+    app:cardCornerRadius="20dp"
+    android:id="@+id/prevButtonId"
     android:layout_margin="10dp"
     android:background="#FFFFFF"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.cardview.widget.CardView
-        android:layout_gravity="center"
-        android:id="@+id/prevButtonId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="20dp"
-        >
+
         <LinearLayout
             android:padding="10dp"
             android:orientation="vertical"
@@ -42,8 +38,8 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
 
 
 
-</LinearLayout>
+
+</androidx.cardview.widget.CardView>

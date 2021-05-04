@@ -2,15 +2,23 @@ package com.example.covid_19updatetracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.covid_19updatetracker.modelClass.OurObjectDataClass;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DetailsActivity extends AppCompatActivity {
     TextView countryName,totalCase,todayCase,totalDeaths,todayDeaths,
             recover,active,critical,casePerMillion,deathsPerMillion,
             totalTest,testPerMillion;
+    List<OurObjectDataClass> selectedData;
+    int position=0;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         countryName=findViewById (R.id.CountryName);
@@ -27,6 +35,8 @@ public class DetailsActivity extends AppCompatActivity {
         testPerMillion=findViewById (R.id.testPerMillion);
 
 
-        
+      
+
+
     }
 }

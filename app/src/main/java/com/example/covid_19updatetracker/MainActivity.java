@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -18,6 +19,7 @@ import com.example.covid_19updatetracker.modelClass.OurObjectDataClass;
 import com.example.covid_19updatetracker.retrofit.ApiInterface;
 import com.example.covid_19updatetracker.retrofit.RetrofitClient;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -31,7 +33,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements CustomAdapter.OnContactClickListener{
     List<OurObjectDataClass> allDataList;
-    List<String> nameList;
+    List<OurObjectDataClass> selectedData;
     ApiInterface apiInterface;
 
 
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.OnC
         setContentView (R.layout.activity_main);
         recyclerView=findViewById(R.id.recyclerViewId);
         onContactClickListener=this;
+        selectedData=new ArrayList<>();
         apiInterface = RetrofitClient.getRetrofit("https://coronavirus-19-api.herokuapp.com/").create(ApiInterface.class);
 
             apiInterface.getAllData().enqueue(new Callback<List<OurObjectDataClass>>() {
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.OnC
                 public void onResponse(Call<List<OurObjectDataClass>> call, Response<List<OurObjectDataClass>> response) {
                     if (response.code()==200){
                         allDataList=new ArrayList<>();
-                        nameList=new ArrayList<>();
+
                         Log.e("response","success");
                         allDataList.addAll(response.body());
                         customAdapter = new CustomAdapter(MainActivity.this,allDataList,onContactClickListener);
@@ -87,6 +90,19 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.OnC
     @Override
     public void onContactClick(int position) {
         Intent intent=new Intent(MainActivity.this,DetailsActivity.class);
+
+        intent.putExtra("country",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("cases",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("todayCases",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("deaths",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("todayDeaths",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("recovered",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("active",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("critical",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("casesPerOneMillion",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("deathsPerOneMillion",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("totalTests",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("testsPerOneMillion",  String.valueOf(allDataList.get(position).getCountry()));
         startActivity(intent);
     }
 }
