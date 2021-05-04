@@ -90,19 +90,18 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.OnC
     @Override
     public void onContactClick(int position) {
         Intent intent=new Intent(MainActivity.this,DetailsActivity.class);
-
         intent.putExtra("country",  String.valueOf(allDataList.get(position).getCountry()));
-        intent.putExtra("cases",  String.valueOf(allDataList.get(position).getCountry()));
-        intent.putExtra("todayCases",  String.valueOf(allDataList.get(position).getCountry()));
-        intent.putExtra("deaths",  String.valueOf(allDataList.get(position).getCountry()));
-        intent.putExtra("todayDeaths",  String.valueOf(allDataList.get(position).getCountry()));
-        intent.putExtra("recovered",  String.valueOf(allDataList.get(position).getCountry()));
-        intent.putExtra("active",  String.valueOf(allDataList.get(position).getCountry()));
-        intent.putExtra("critical",  String.valueOf(allDataList.get(position).getCountry()));
-        intent.putExtra("casesPerOneMillion",  String.valueOf(allDataList.get(position).getCountry()));
-        intent.putExtra("deathsPerOneMillion",  String.valueOf(allDataList.get(position).getCountry()));
-        intent.putExtra("totalTests",  String.valueOf(allDataList.get(position).getCountry()));
-        intent.putExtra("testsPerOneMillion",  String.valueOf(allDataList.get(position).getCountry()));
+        intent.putExtra("cases",  String.valueOf(allDataList.get(position).getCases()));
+        intent.putExtra("todayCases",  String.valueOf(allDataList.get(position).getTodayCases()));
+        intent.putExtra("deaths",  String.valueOf(allDataList.get(position).getDeaths()));
+        intent.putExtra("todayDeaths",  String.valueOf(allDataList.get(position).getTodayDeaths()));
+        intent.putExtra("recovered",  String.valueOf(allDataList.get(position).getRecovered()));
+        intent.putExtra("active",  String.valueOf(allDataList.get(position).getActive()));
+        intent.putExtra("critical",  String.valueOf(allDataList.get(position).getCritical()));
+        intent.putExtra("casesPerOneMillion",  String.valueOf(allDataList.get(position).getCasesPerOneMillion()));
+        intent.putExtra("deathsPerOneMillion",  String.valueOf(allDataList.get(position).getDeathsPerOneMillion()));
+        intent.putExtra("totalTests",  String.valueOf(allDataList.get(position).getTotalTests()));
+        intent.putExtra("testsPerOneMillion",  String.valueOf(allDataList.get(position).getTestsPerOneMillion()));
         startActivity(intent);
     }
 }
