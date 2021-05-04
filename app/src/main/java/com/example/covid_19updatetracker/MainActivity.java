@@ -2,10 +2,13 @@ package com.example.covid_19updatetracker;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.covid_19updatetracker.modelClass.OurObjectDataClass;
@@ -26,10 +29,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
     List<OurObjectDataClass> allDataList;
     List<String> nameList;
-    String token;
     ApiInterface apiInterface;
 
-    Call<OurObjectDataClass> call;
+
+
+    RecyclerView recyclerView;
+
 
 
 
@@ -39,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_main);
+        recyclerView=findViewById(R.id.recyclerViewId);
 
         apiInterface = RetrofitClient.getRetrofit("https://coronavirus-19-api.herokuapp.com/").create(ApiInterface.class);
 
@@ -47,10 +53,15 @@ public class MainActivity extends AppCompatActivity {
                 public void onResponse(Call<List<OurObjectDataClass>> call, Response<List<OurObjectDataClass>> response) {
                     if (response.code()==200){
                         allDataList=new ArrayList<>();
+                        nameList=new ArrayList<>();
                         Log.e("response","success");
                         allDataList.addAll(response.body());
+                        for (int i=0;i<allDataList.size()-1;i++){
+                            nameList.add(allDataList.get(i).getCountry());
+                        }
 
                         Log.e("size",String.valueOf( allDataList.size()));
+
                     }else {
                         Toast.makeText(MainActivity.this, "Try again", Toast.LENGTH_SHORT).show();
                     }
@@ -64,22 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-
-
-//        apiInterface.getData().enqueue(new Callback<OurObjectDataClass>() {
-//            @Override
-//            public void onResponse(Call<OurObjectDataClass> call, Response<OurObjectDataClass> response) {
-//                Log.e("size","sss");
-//                Log.e("size",String.valueOf(response.body().getCountry()));
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<OurObjectDataClass> call, Throwable t) {
-//                Log.e("size",t.getMessage());
-//            }
-//        });
-
 
 
     }
